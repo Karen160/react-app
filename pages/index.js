@@ -9,7 +9,7 @@ export default function Home() {
     const [editableTodo, setEditableTodo] = useState()
 
     /**
-     * Edition de la Task
+     * Permet l'edition de la tache
      * @param todo
      * @param i
      */
@@ -17,6 +17,10 @@ export default function Home() {
         setEditableTodo(i)
     }
 
+    /**
+     * Enregistre les modifications de la tache
+     * @param e
+     */
     const handleChange = (e) => {
         let copyTodolist = [...todolist];
         copyTodolist[editableTodo] = e.target.value;
@@ -35,8 +39,6 @@ export default function Home() {
           <h3>count: { count }</h3>
           <button onClick={() => setCount(count + 1)}>Ajouter</button>
 
-          {/* Input */}
-          {/* Button */}
           {
               todolist.length > 0 &&  (
                   todolist.map((todo, i) => {
