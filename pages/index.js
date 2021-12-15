@@ -1,12 +1,25 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
+import Card from "../components/Card";
 
 export default function Home() {
     const [count, setCount] = useState(0)
     const [todolist, setTodolist] = useState(["toto", "tata", "titi"])
     const [newElement, setNewElement] = useState()
     const [editableTodo, setEditableTodo] = useState()
+    const [color, setColor] = useState('white')
+
+    useEffect(() => {
+        count >= 1 && setColor('red')
+    }, [count])
+
+    useEffect(() => {
+        localStorage.setItem("todos", todolist)
+        return () => {
+            localStorage.clear()
+        }
+    }, [todolist])
 
     /**
      * Permet l'edition de la tache
@@ -37,8 +50,8 @@ export default function Home() {
       <main className={styles.main}>
           <h1>Hello</h1>
           <h3>count: { count }</h3>
-          <button onClick={() => setCount(count + 1)}>Ajouter</button>
-
+          <button style={{backgroundColor : color}} onClick={() => setCount(count + 1)}>Ajouter</button>
+          <br />
           {
               todolist.length > 0 &&  (
                   todolist.map((todo, i) => {
@@ -57,6 +70,8 @@ export default function Home() {
               <input type="text" value={newElement} onChange={(event) => setNewElement(event.target.value)} />
               <input type="button" value="Submit" onClick={() => setTodolist([...todolist, newElement])}/>
           </div>
+
+          <Card title="Jolyne Kujoh" desc="Stand : stone ocean" image="https://pbs.twimg.com/media/E8HMAAgWQAAZc6e.jpg" price="100060 euros" />
       </main>
     </div>
   )
