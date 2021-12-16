@@ -1,8 +1,10 @@
 .nav{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
+    border-top: 1px solid white;
+    padding: 20px;
 }
 
 .list{
@@ -11,4 +13,16 @@
     align-items: center;
     width: 100%;
     flex-wrap: wrap;
+}
+
+.head{
+    background-color: royalblue;
+    color: white;
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
+.title{
+    margin: 0 0 50px 0;
+    text-align: center;
 }

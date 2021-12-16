@@ -1,22 +1,37 @@
 .card{
-    border: 1px solid black;
     padding: 20px;
-    margin: 20px;
+    margin: 10px;
+    box-shadow: 10px 15px 15px grey;
+    display: grid;
 }
 
 .image{
-    width: 300px;
+    width: 250px;
 }
 
 .button{
     width: 100%;
-    background-color: lightblue;
+    background-color: royalblue;
     border: none;
     padding-top: 5px;
     padding-bottom: 5px;
+    color: white;
+    margin-top: 16px;
+}
+
+.button:hover{
+    cursor: pointer;
+    background-color: skyblue;
+    color: black;
 }
 
 .title{
-    color: darkblue;
-    padding: 5px 0 10px;
+    color: royalblue;
+    margin: 0px;
+}
+
+.divText{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
